@@ -1,6 +1,6 @@
 # Deployed version
 
-<a href="http://andreassjolund.chas.acadaemy/09">Click Here</a>
+<a href="http://andreassjolund.chas.academy/09">Click Here</a>
 
 # RecipeBook
 
