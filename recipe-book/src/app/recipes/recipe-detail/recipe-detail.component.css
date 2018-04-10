@@ -1,0 +1,22 @@
+.ingredients {
+  list-style-type: none;
+}
+
+.ingredient {
+  display: flex;
+  justify-content: row;
+}
+
+.ingredientMeasure {
+  font-size: 75%;
+  margin: auto 0px auto 0px;
+}
+
+.ingredientDivider {
+  margin: auto 10px auto 10px;
+
+}
+
+.instructions {
+  margin-top: 10px;
+}

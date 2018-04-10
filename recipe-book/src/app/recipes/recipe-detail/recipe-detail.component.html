@@ -1,0 +1,35 @@
+<app-back></app-back>
+<div *ngIf="recipe">
+  <header>
+    <h1>
+      {{ recipe.name }}
+    </h1>
+    <p><a href="{{recipe.youtubeUrl}}" target="_blank">Watch youtube video</a></p>
+    <button>Store recipe</button>
+  </header>
+  <main>
+    <div>
+      <img src="{{recipe.photoUrl}}" alt="">
+      <p class="country">Country: {{ recipe['country'] }}</p>
+    </div>
+
+    <div>
+      <p>Ingredients: </p>
+      <ul class="ingredients">
+        <li *ngFor="let ingredient of recipe['ingredients']" class="ingredient">
+          <p class="ingredientsName">{{ ingredient['name'] | uppercase }}
+            <p class="ingredientDivider">|</p>
+          <p class="ingredientMeasure">{{ ingredient['measure'] | uppercase }}</p>
+        </li>
+      </ul>
+    </div>
+
+    <div class="instructionsContainer">
+      <p>Instructions: </p>
+      <ol>
+        <li class="instructions" *ngFor="let instruction of recipe.instructions">{{ instruction }}</li>
+      </ol>
+    </div>
+
+  </main>
+</div>
