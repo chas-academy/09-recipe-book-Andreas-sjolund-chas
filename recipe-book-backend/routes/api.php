@@ -17,6 +17,17 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::post('store', 'TestController@storeRecipe');
+Route::get('users', 'UserController@getAllUsers');
+Route::get('user/{id}/lists', 'UserController@getUserRecipeLists');
 
-Route::get('stored/list', 'TestController@getStoredRecipes')->middleware('cors');
+Route::group([
+	'middleware' => 'api',
+	'prefix' => 'auth'
+], function ($router) {
+	Route::post('login', 'AuthController@login');
+	Route::post('logout', 'AuthController@logout');
+	Route::post('refresh', 'AuthController@refresh');
+	Route::post('me', 'AuthController@me');
+});
+
+Route::resource('list', 'ListController');

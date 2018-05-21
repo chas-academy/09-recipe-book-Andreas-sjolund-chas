@@ -13,11 +13,11 @@ use App\Http\Middleware\Cors;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+Route::get('/', function () {
+    return view('welcome');
+});
 
-Route::get('login', 'TestController@index')->middleware('cors');
+Route::get('login', 'RecipeController@index')->middleware('cors');
 
 
 

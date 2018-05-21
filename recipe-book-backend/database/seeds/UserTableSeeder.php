@@ -1,5 +1,6 @@
 <?php
 use Illuminate\Database\Seeder;
+use App\User;
 
 class UserTableSeeder extends Seeder {
 
@@ -10,7 +11,7 @@ class UserTableSeeder extends Seeder {
         User::create(array(
             'name' => 'Andreas',
             'email' => 'andreas.sjolund@chasacademy.se',
-            'password' => 'test123' 
+            'password' => 'password'
         ));
     }    
 
