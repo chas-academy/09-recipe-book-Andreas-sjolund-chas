@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Http\Request;
+use App\Http\Middleware\CheckAuthentication;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,6 +20,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::get('users', 'UserController@getAllUsers');
 Route::get('user/{id}/lists', 'UserController@getUserRecipeLists');
+
+Route::post('users', 'UserController@register');
 
 Route::group([
 	'middleware' => 'api',

@@ -68,7 +68,9 @@ class ListController extends Controller
      */
     public function edit($id)
     {
-        dd('test');
+        response(
+            RecipeList::find($id)
+        );
     }
 
     /**
@@ -81,11 +83,25 @@ class ListController extends Controller
     public function update(Request $request, $id)
     {
         $recipe_id = $request->input('recipe_id');
-
-        $recipeList = RecipeList::find($id)->recipes;
-        $recipeList[] = $recipe_id;
+        $newTitle = $request->input('title');
         
-        RecipeList::findOrFail($id)->update(array('recipes' => $recipeList));
+        if($recipe_id != null) {
+
+            $recipeList = RecipeList::find($id)->recipes;
+            $recipeList[] = $recipe_id;
+
+            RecipeList::findOrFail($id)->update
+            ([
+                'recipes' => $recipeList
+            ]);
+        }
+
+        if ($newTitle) {
+            RecipeList::findOrFail($id)->update
+            ([
+                'title' => $newTitle
+            ]);
+        } 
     }
 
     /**
