@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\RecipeList;
 
 class ListController extends Controller
@@ -38,11 +39,10 @@ class ListController extends Controller
     public function store(Request $request)
     {
         $title = $request->input('title');
-
-        // Needs user_id!!!!
+        $user_id = Auth::user()->id;
 
         return response(
-            RecipeList::create(array('title' => $title))
+            RecipeList::create(array('title' => $title, 'user_id' => $user_id))
         );
     }
 
@@ -55,7 +55,8 @@ class ListController extends Controller
     public function show($id)
     {
         return response(
-            RecipeList::find($id)->with('user')->get()
+            RecipeList::find($id)
+            // RecipeList::find($id)->with('user')->get()
         );
     }
 
@@ -67,7 +68,7 @@ class ListController extends Controller
      */
     public function edit($id)
     {
-        //
+        dd('test');
     }
 
     /**
@@ -79,7 +80,12 @@ class ListController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $recipe_id = $request->input('recipe_id');
+
+        $recipeList = RecipeList::find($id)->recipes;
+        $recipeList[] = $recipe_id;
+        
+        RecipeList::findOrFail($id)->update(array('recipes' => $recipeList));
     }
 
     /**
@@ -90,6 +96,6 @@ class ListController extends Controller
      */
     public function destroy($id)
     {
-        //
+        RecipeList::find($id)->delete();
     }
 }
