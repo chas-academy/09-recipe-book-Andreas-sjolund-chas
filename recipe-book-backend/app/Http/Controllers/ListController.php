@@ -21,16 +21,6 @@ class ListController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-
-    }
-
-    /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -56,20 +46,6 @@ class ListController extends Controller
     {
         return response(
             RecipeList::find($id)
-            // RecipeList::find($id)->with('user')->get()
-        );
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        response(
-            RecipeList::find($id)
         );
     }
 
@@ -85,7 +61,7 @@ class ListController extends Controller
         $recipe_id = $request->input('recipe_id');
         $newTitle = $request->input('title');
         
-        if($recipe_id != null) {
+        if(empty($recipe_id)) {
 
             $recipeList = RecipeList::find($id)->recipes;
             $recipeList[] = $recipe_id;
