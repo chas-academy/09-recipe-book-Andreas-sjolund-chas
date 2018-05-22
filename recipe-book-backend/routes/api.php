@@ -33,4 +33,4 @@ Route::group([
 	Route::post('me', 'AuthController@me');
 });
 
-Route::resource('list', 'ListController');
+Route::resource('list', 'ListController', ['middleware' => 'authJWT']);
