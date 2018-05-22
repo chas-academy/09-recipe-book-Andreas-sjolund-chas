@@ -14,7 +14,7 @@ class CreateListsTable extends Migration
         Schema::create('lists', function (Blueprint $table) {
             $table->increments('id');
             $table->string('title');
-            $table->json('recipes')->nullable(true);
+            $table->json('recipes');
             $table->unsignedInteger('user_id');
 
             // Relates to the user table here with foreign_key

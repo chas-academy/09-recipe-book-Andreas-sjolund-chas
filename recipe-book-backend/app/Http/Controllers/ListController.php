@@ -58,26 +58,24 @@ class ListController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $recipe_id = $request->input('recipe_id');
-        $newTitle = $request->input('title');
-        
-        if(empty($recipe_id)) {
+        $data = $request->all();
+        $list = RecipeList::findOrFail($id);
 
-            $recipeList = RecipeList::find($id)->recipes;
-            $recipeList[] = $recipe_id;
+        if ($request->filled('recipe_id')) {
+            $listRecipes = $list->recipes;
+            $listRecipes[] = $data['recipe_id'];
+            $listRecipes = array_unique(array_merge($listRecipes, $list->recipes));
 
-            RecipeList::findOrFail($id)->update
-            ([
-                'recipes' => $recipeList
-            ]);
+            $list->recipes = $listRecipes;
+            
+            $list->fill($data);
+            $list->save();
+        } else if ($request->filled('title')) {
+            $list->fill($data);
+            $list->save();
+        } else {
+            return response()->json('Nothing to update', 500);
         }
-
-        if ($newTitle) {
-            RecipeList::findOrFail($id)->update
-            ([
-                'title' => $newTitle
-            ]);
-        } 
     }
 
     /**

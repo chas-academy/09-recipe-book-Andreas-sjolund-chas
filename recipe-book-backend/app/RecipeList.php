@@ -8,6 +8,10 @@ class RecipeList extends Model
 {
     protected $table = 'lists';
 
+    protected $attributes = [
+        'recipes' => '[]'
+    ];
+
     protected $casts = [
         'recipes' => 'array'
     ];
