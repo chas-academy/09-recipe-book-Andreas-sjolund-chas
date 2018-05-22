@@ -2,6 +2,12 @@
 
 <a href="http://andreassjolund.chas.academy/09">Click Here</a>
 
+## Postman endpoints
+
+Collections can be found in `Recipe app.postman_collection.json` in the root folder.
+
+Import the JSON-file to Postman to use collections.
+
 # RecipeBook
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.6.7.
