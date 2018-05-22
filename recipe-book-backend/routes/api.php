@@ -20,12 +20,12 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::get('users', 'UserController@getAllUsers');
 Route::get('user/{id}/lists', 'UserController@getUserRecipeLists');
 
-Route::post('users', 'UserController@register');
 
 Route::group([
 	'middleware' => 'api',
 	'prefix' => 'auth'
 ], function ($router) {
+	Route::post('register', 'AuthController@register');
 	Route::post('login', 'AuthController@login');
 	Route::post('logout', 'AuthController@logout');
 	Route::post('refresh', 'AuthController@refresh');
