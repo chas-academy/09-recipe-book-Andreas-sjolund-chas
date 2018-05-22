@@ -1,0 +1,466 @@
+{
+	"info": {
+		"name": "Recipe app",
+		"_postman_id": "ddfcba26-c3c3-4a17-4c56-9e726e221409",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"description": "",
+			"item": [
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "email",
+									"value": "test@gmail.com",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "password",
+									"description": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://recipe.test/api/auth/login",
+							"protocol": "http",
+							"host": [
+								"recipe",
+								"test"
+							],
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Get current user",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9yZWNpcGUudGVzdFwvYXBpXC9hdXRoXC9sb2dpbiIsImlhdCI6MTUyNjk4Mzk2MCwiZXhwIjoxNTI2OTg3NTYwLCJuYmYiOjE1MjY5ODM5NjAsImp0aSI6Im1GOVpzTEtiMTNrUWlHRmIiLCJzdWIiOjIsInBydiI6Ijg3ZTBhZjFlZjlmZDE1ODEyZmRlYzk3MTUzYTE0ZTBiMDQ3NTQ2YWEifQ.Rq2WSmDNXPAbsqQpBLOsBEECLcoWU9_0QWL887ufbKY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "x-access-token",
+								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9yZWNpcGUudGVzdFwvYXBpXC9hdXRoXC9sb2dpbiIsImlhdCI6MTUyNjkxOTAwMiwiZXhwIjoxNTI2OTIyNjAyLCJuYmYiOjE1MjY5MTkwMDIsImp0aSI6InZmUTdvOFlJZ0lER2NsejkiLCJzdWIiOjIsInBydiI6Ijg3ZTBhZjFlZjlmZDE1ODEyZmRlYzk3MTUzYTE0ZTBiMDQ3NTQ2YWEifQ.Zp7SI3Iz0ljX1E1xHhrXJC5QxoEQ_XRf92eNFMSJgSo",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "email",
+									"value": "test@user.com",
+									"description": "",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "password",
+									"value": "password",
+									"description": "",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "http://recipe.test/api/auth/me",
+							"protocol": "http",
+							"host": [
+								"recipe",
+								"test"
+							],
+							"path": [
+								"api",
+								"auth",
+								"me"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Register user",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "Test Usersson",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "test@gmail.com",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "password",
+									"description": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://recipe.test/api/users",
+							"protocol": "http",
+							"host": [
+								"recipe",
+								"test"
+							],
+							"path": [
+								"api",
+								"users"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Lists",
+			"description": "",
+			"item": [
+				{
+					"name": "Get all lists",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9yZWNpcGUudGVzdFwvYXBpXC9hdXRoXC9sb2dpbiIsImlhdCI6MTUyNjk4Mzk2MCwiZXhwIjoxNTI2OTg3NTYwLCJuYmYiOjE1MjY5ODM5NjAsImp0aSI6Im1GOVpzTEtiMTNrUWlHRmIiLCJzdWIiOjIsInBydiI6Ijg3ZTBhZjFlZjlmZDE1ODEyZmRlYzk3MTUzYTE0ZTBiMDQ3NTQ2YWEifQ.Rq2WSmDNXPAbsqQpBLOsBEECLcoWU9_0QWL887ufbKY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "http://recipe.test/api/list",
+							"protocol": "http",
+							"host": [
+								"recipe",
+								"test"
+							],
+							"path": [
+								"api",
+								"list"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "get list by id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9yZWNpcGUudGVzdFwvYXBpXC9hdXRoXC9sb2dpbiIsImlhdCI6MTUyNjk4Mzk2MCwiZXhwIjoxNTI2OTg3NTYwLCJuYmYiOjE1MjY5ODM5NjAsImp0aSI6Im1GOVpzTEtiMTNrUWlHRmIiLCJzdWIiOjIsInBydiI6Ijg3ZTBhZjFlZjlmZDE1ODEyZmRlYzk3MTUzYTE0ZTBiMDQ3NTQ2YWEifQ.Rq2WSmDNXPAbsqQpBLOsBEECLcoWU9_0QWL887ufbKY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "http://recipe.test/api/list/4",
+							"protocol": "http",
+							"host": [
+								"recipe",
+								"test"
+							],
+							"path": [
+								"api",
+								"list",
+								"4"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "get list by user id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9yZWNpcGUudGVzdFwvYXBpXC9hdXRoXC9sb2dpbiIsImlhdCI6MTUyNjk4Mzk2MCwiZXhwIjoxNTI2OTg3NTYwLCJuYmYiOjE1MjY5ODM5NjAsImp0aSI6Im1GOVpzTEtiMTNrUWlHRmIiLCJzdWIiOjIsInBydiI6Ijg3ZTBhZjFlZjlmZDE1ODEyZmRlYzk3MTUzYTE0ZTBiMDQ3NTQ2YWEifQ.Rq2WSmDNXPAbsqQpBLOsBEECLcoWU9_0QWL887ufbKY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "http://recipe.test/api/user/1/lists",
+							"protocol": "http",
+							"host": [
+								"recipe",
+								"test"
+							],
+							"path": [
+								"api",
+								"user",
+								"1",
+								"lists"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "create new list",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9yZWNpcGUudGVzdFwvYXBpXC9hdXRoXC9sb2dpbiIsImlhdCI6MTUyNjk4Mzk2MCwiZXhwIjoxNTI2OTg3NTYwLCJuYmYiOjE1MjY5ODM5NjAsImp0aSI6Im1GOVpzTEtiMTNrUWlHRmIiLCJzdWIiOjIsInBydiI6Ijg3ZTBhZjFlZjlmZDE1ODEyZmRlYzk3MTUzYTE0ZTBiMDQ3NTQ2YWEifQ.Rq2WSmDNXPAbsqQpBLOsBEECLcoWU9_0QWL887ufbKY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "title",
+									"value": "Yet another fancy list",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "",
+									"value": "",
+									"description": "",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "http://recipe.test/api/list",
+							"protocol": "http",
+							"host": [
+								"recipe",
+								"test"
+							],
+							"path": [
+								"api",
+								"list"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Add new recipe",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9yZWNpcGUudGVzdFwvYXBpXC9hdXRoXC9sb2dpbiIsImlhdCI6MTUyNjk4Mzk2MCwiZXhwIjoxNTI2OTg3NTYwLCJuYmYiOjE1MjY5ODM5NjAsImp0aSI6Im1GOVpzTEtiMTNrUWlHRmIiLCJzdWIiOjIsInBydiI6Ijg3ZTBhZjFlZjlmZDE1ODEyZmRlYzk3MTUzYTE0ZTBiMDQ3NTQ2YWEifQ.Rq2WSmDNXPAbsqQpBLOsBEECLcoWU9_0QWL887ufbKY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "recipe_id",
+									"value": "67493",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "",
+									"value": "",
+									"description": "",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "http://recipe.test/api/list/2",
+							"protocol": "http",
+							"host": [
+								"recipe",
+								"test"
+							],
+							"path": [
+								"api",
+								"list",
+								"2"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Delete list",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9yZWNpcGUudGVzdFwvYXBpXC9hdXRoXC9sb2dpbiIsImlhdCI6MTUyNjk4Mzk2MCwiZXhwIjoxNTI2OTg3NTYwLCJuYmYiOjE1MjY5ODM5NjAsImp0aSI6Im1GOVpzTEtiMTNrUWlHRmIiLCJzdWIiOjIsInBydiI6Ijg3ZTBhZjFlZjlmZDE1ODEyZmRlYzk3MTUzYTE0ZTBiMDQ3NTQ2YWEifQ.Rq2WSmDNXPAbsqQpBLOsBEECLcoWU9_0QWL887ufbKY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "http://recipe.test/api/list/5",
+							"protocol": "http",
+							"host": [
+								"recipe",
+								"test"
+							],
+							"path": [
+								"api",
+								"list",
+								"5"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Update list title",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9yZWNpcGUudGVzdFwvYXBpXC9hdXRoXC9sb2dpbiIsImlhdCI6MTUyNjk4Mzk2MCwiZXhwIjoxNTI2OTg3NTYwLCJuYmYiOjE1MjY5ODM5NjAsImp0aSI6Im1GOVpzTEtiMTNrUWlHRmIiLCJzdWIiOjIsInBydiI6Ijg3ZTBhZjFlZjlmZDE1ODEyZmRlYzk3MTUzYTE0ZTBiMDQ3NTQ2YWEifQ.Rq2WSmDNXPAbsqQpBLOsBEECLcoWU9_0QWL887ufbKY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "title",
+									"value": "new title",
+									"description": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://recipe.test/api/list/2/edit",
+							"protocol": "http",
+							"host": [
+								"recipe",
+								"test"
+							],
+							"path": [
+								"api",
+								"list",
+								"2",
+								"edit"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
